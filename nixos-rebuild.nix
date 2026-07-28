@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   rb-script = import ./rebuild-boot.sh.nix { inherit pkgs; };
   rb-bin = pkgs.writeScriptBin "nixos-rebuild" rb-script;
