@@ -1,4 +1,4 @@
-{ pkgs, ... }:{
+{ config, pkgs, ... }:{
     imports = [
         ./bind-mounts.nix
         ./filesystems.nix
