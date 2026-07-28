@@ -10,7 +10,7 @@
           hashed-root-password = "${selfArg.outPath}/RPW";
           btrfs-device = "${selfArg.outPath}/BTR";
           efi-device = "${selfArg.outPath}/EFI";
-          hardware-configuration = selfArg.outPath/hardware-configuration.nix;
+          hardware-configuration = "${selfArg.outPath}/hardware-configuration.nix";
           extra-config = fileThatExistsMapElse "${selfArg.outPath}/config.nix" (_: _) { };
 
           fileThatExistsMapElse =
