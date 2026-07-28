@@ -1,5 +1,6 @@
 { ... }:
 let
+    myservice.enable = true;
     myservice.wantedBy = [ "multi-user.target" ];
     myservice.script = ''
         ## btrfs mounts happen somewhere else

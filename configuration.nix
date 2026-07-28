@@ -2,6 +2,7 @@
     imports = [
         ./bind-mounts.nix
         ./filesystems.nix
+        ./flathub.nix
         ./huskyos-options.nix
         ./nixos-rebuild.nix
     ];
@@ -17,6 +18,7 @@
     services.desktopManager.gnome.enable = true;
     services.displayManager.gdm.enable = true;
     services.gnome.core-apps.enable = false;
+    
 
     time.timeZone = "Europe/Amsterdam";
 
