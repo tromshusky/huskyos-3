@@ -32,7 +32,6 @@
             modules = [
               hardwareConfiguration
               ./configuration.nix
-              ./huskyos-options.nix
               {
                 huskyos.btrfsDevice = builtins.readFile btrfs-device;
                 huskyos.efiDevice = builtins.readFile efi-device;
