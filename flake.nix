@@ -36,7 +36,7 @@
                 huskyos.btrfsDevice = builtins.readFile btrfs-device;
                 huskyos.efiDevice = builtins.readFile efi-device;
                 huskyos.flakeFolder = selfArg.outPath;
-                huskyos.hardwareUri = hardware-configuration-no-filesystems;
+                huskyos.hardwareUri = hardware-configuration;
                 huskyos.keyboardLayout = firstLineOfFileElse keyboard-layout "us";
                 huskyos.hashedRootPassword = firstLineOfFileElse hashed-root-password null;
               }
