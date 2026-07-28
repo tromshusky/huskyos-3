@@ -6,12 +6,12 @@
       withSelf =
         selfArg:
         let
-          keyboard-layout = selfArg.outPath/KBD;
-          hashed-root-password = selfArg.outPath/RPW;
-          btrfs-device = selfArg.outPath/BTR;
-          efi-device = selfArg.outPath/EFI;
-          hardware-configuration = selfArg.outPath/hardware-configuration.nix;
-          extra-config = fileThatExistsMapElse selfArg.outPath/config.nix (_: _) { };
+          keyboard-layout = "${selfArg.outPath}/KBD";
+          hashed-root-password = "${selfArg.outPath}/RPW";
+          btrfs-device = "${selfArg.outPath}/BTR";
+          efi-device = "${selfArg.outPath}/EFI";
+          hardware-configuration = "${selfArg.outPath}/hardware-configuration.nix";
+          extra-config = fileThatExistsMapElse "${selfArg.outPath}/config.nix" (_: _) { };
 
           fileThatExistsMapElse =
             fPath: mapFile: els:
