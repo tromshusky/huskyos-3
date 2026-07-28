@@ -6,7 +6,7 @@
       withSelf =
         selfArg:
         let
-          keyboard-layout = selfArg.outPath/KBD";
+          keyboard-layout = selfArg.outPath/KBD;
           hashed-root-password = selfArg.outPath/RPW;
           btrfs-device = selfArg.outPath/BTR;
           efi-device = selfArg.outPath/EFI;
