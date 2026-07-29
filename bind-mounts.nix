@@ -3,6 +3,7 @@ let
     myservice.enable = true;
     myservice.wantedBy = [ "multi-user.target" ];
     myservice.script = ''
+        PATH=$PATH:/run/wrappers/bin
         ## btrfs mounts happen somewhere else
         # mount -o subvol=@huskyos/@userdata /dev/sda2 /userdata
         # mount -o subvol=@huskyos/@systemdata /dev/sda2 /systemdata
