@@ -1,51 +1,26 @@
 {
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   outputs =
-    { nixpkgs, ... }:
+    { self, nixpkgs, ... }:
     {
       withSelf =
         selfArg:
         let
-          keyboard-layout = "${selfArg.outPath}/KBD";
-          hashed-root-password = "${selfArg.outPath}/RPW";
-          btrfs-device = "${selfArg.outPath}/BTR";
-          efi-device = "${selfArg.outPath}/EFI";
-          hardware-configuration = "${selfArg.outPath}/hardware-configuration.nix";
-          extra-config = fileThatExistsMapElse "${selfArg.outPath}/config.nix" (_: _) { };
-
-          fileThatExistsMapElse =
-            fPath: mapFile: els:
-            if (builtins.pathExists fPath) && (builtins.readFileType fPath == "regular") then
-              (mapFile fPath)
-            else
-              els;
-          firstLineOfFileElse = fPath: els: (fileThatExistsMapElse fPath firstLine els);
-          firstLine = text: (builtins.head (builtins.split "\n" (builtins.readFile text)));
-
-          hardwareConfiguration = { pkgs, lib, config, modulesPath, ... }: (
-              (import hardware-configuration { inherit pkgs lib config modulesPath; }) // {
-                fileSystems = { };
-              }
-            );
-
-          buildArg = {
+          hw_nix = "${selfArg.outPath}/hardware-configuration.nix";
+          hardwareConfiguration = { pkgs, ... }@args: ((import hw_nix args) // { fileSystems = { }; });
+        in
+        {
+          nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
             modules = [
               hardwareConfiguration
               ./configuration.nix
               {
-                huskyos.btrfsDevice = builtins.readFile btrfs-device;
-                huskyos.efiDevice = builtins.readFile efi-device;
-                huskyos.flakeFolder = selfArg.outPath;
-                huskyos.hardwareUri = hardware-configuration;
-                huskyos.keyboardLayout = firstLineOfFileElse keyboard-layout "us";
-                huskyos.hashedRootPassword = firstLineOfFileElse hashed-root-password null;
+                #                imports = [ hardwareConfiguration ];
+                nix.settings.experimental-features = [ "nix-command flakes" ];
+                huskyos.flakeFolder = "${selfArg.outPath}";
               }
-              extra-config
             ];
           };
-        in
-        {
-          nixosConfigurations."huskyos" = nixpkgs.lib.nixosSystem buildArg;
         };
     };
 }
