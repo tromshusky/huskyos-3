@@ -1,4 +1,4 @@
-#!/usr/bin/env -S sh -c 'cat $0 | tail -n+2 | grep -A100 "#!" | unshare -m'
+#!/usr/bin/env -S /bin/sh -c 'cat $0 | tail -n+2 | grep -A100 "#!" | unshare -m'
 {
   config,
   lib,
@@ -8,7 +8,7 @@
 let
   
   updatescript = with pkgs; with config.huskyos; ''
-    #!/usr/bin/env -S sh -c 'export PATH=$PATH:${coreutils}/bin:${nix}/bin:${sbctl}/bin; cat $0 | unshare -m'
+    #!/usr/bin/env -S /bin/sh -c 'export PATH=$PATH:${coreutils}/bin:${nix}/bin:${sbctl}/bin; cat $0 | unshare -m'
     set -euo pipefail
     flakeFolder=.
     echo starting system update script...
