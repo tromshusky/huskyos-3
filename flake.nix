@@ -10,7 +10,7 @@
           hardwareConfiguration = { pkgs, ... }@args: ((import hw_nix args) // { fileSystems = { }; });
         in
         {
-          nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+          nixosConfigurations.huskyos = nixpkgs.lib.nixosSystem {
             modules = [
               hardwareConfiguration
               ./configuration.nix
