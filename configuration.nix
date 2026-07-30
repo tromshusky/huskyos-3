@@ -9,9 +9,10 @@
   imports = [
     ./bind-mounts.nix
     ./critical.nix
-    ./gnome.nix
     ./flathub.nix
     ./filesystems.nix
+    ./gnome.nix
+    ./wallpaper.nix
   ];
   config.time.timeZone = "Europe/Amsterdam";
 
