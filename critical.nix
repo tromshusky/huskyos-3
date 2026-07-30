@@ -8,7 +8,8 @@
 let
   
   updatescript = with pkgs; with config.huskyos; ''
-    #!/usr/bin/env -S /bin/sh -c 'export PATH=$PATH:${util-linux}/bin:${coreutils}/bin:${nix}/bin:${sbctl}/bin; cat $0 | unshare -m'
+    #!/usr/bin/env -S /bin/sh -c 'export PATH=/run/current-system/sw/bin; cat $0 | unshare -m'
+    PATH=/run/current-system/sw/bin:${nix}/bin:${sbctl}/bin; 
     set -euo pipefail
     flakeFolder=.
     echo starting system update script...
