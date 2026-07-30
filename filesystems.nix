@@ -26,49 +26,20 @@ in
   fileSystems."/nix" = {
     device = BTR;
     fsType = "btrfs";
-    options = [ "subvol=@huskyos/@nix-A" ];
+    options = [ "subvol=@huskyos/@nix" ];
   };
 
   fileSystems."/userdata" = {
     device = BTR;
     fsType = "btrfs";
-    options = [ "subvol=@huskyos/@userdata-B" ];
+    options = [ "subvol=@huskyos/@userdata" ];
   };
 
   fileSystems."/systemdata" = {
+    neededForBoot = true;
     device = BTR;
     fsType = "btrfs";
-    options = [ "subvol=@huskyos/@systemdata-A" ];
-  };
-
-  fileSystems."/etc/NetworkManager" = {
-    device = "/systemdata/etc/NetworkManager";
-    fsType = "none";
-    options = [ "bind" ];
-  };
-
-  fileSystems."/home/user/.var" = {
-    device = "/systemdata/home/user/.var";
-    fsType = "none";
-    options = [ "bind" ];
-  };
-
-  fileSystems."/home/user/.cache" = {
-    device = "/systemdata/home/user/.cache";
-    fsType = "none";
-    options = [ "bind" ];
-  };
-
-  fileSystems."/home/user/.local" = {
-    device = "/systemdata/home/user/.local";
-    fsType = "none";
-    options = [ "bind" ];
-  };
-
-  fileSystems."/home/user/.config" = {
-    device = "/systemdata/home/user/.config";
-    fsType = "none";
-    options = [ "bind" ];
+    options = [ "subvol=@huskyos/@systemdata" ];
   };
 
   swapDevices = [ ];

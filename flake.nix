@@ -15,7 +15,6 @@
               hardwareConfiguration
               ./configuration.nix
               {
-                #                imports = [ hardwareConfiguration ];
                 nix.settings.experimental-features = [ "nix-command flakes" ];
                 huskyos.flakeFolder = "${selfArg.outPath}";
               }
