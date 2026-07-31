@@ -1,12 +1,13 @@
 # HuskyOS — computers made easy 🐾💻
 
-HuskyOS is a friendly, ready-made NixOS setup for families and people who just want their computer to work — like a smartphone, but for a full PC. It uses well-supported pieces (GNOME, Flatpak, signed boot) and puts them together so updates, resets, and app installs feel simple and safe.
+HuskyOS is a friendly, ready-made Linux for families and people who just want their computer to work — like a smartphone, but for a full PC. It uses well-supported pieces (GNOME, Flatpak, signed boot) and puts them together so updates, resets, and app installs feel simple and safe.
 
 ## Why you'll like it 😊
-- Fast, safe updates: updates are "atomic" — they switch the whole system at once and you can undo them if something breaks. The updater only rebuilds what changed, so updates are quick.
-- Easy factory reset: user files and system files are kept separate, so wiping a machine for a kid or guest is quick without re-downloading everything.
-- Apps are sandboxed: apps come from Flatpak (like apps on your phone) and are isolated from your personal files unless you allow access.
-- Secure boot and signed images: boot code can be signed so the machine boots only trusted software.
+- Small by default: HuskyOS itself is quite empty, compared to Smartphones, that come full of apps you never asked for. On the first launch you can then download all you need, or look for the apps you need on the Flathub store at anytime.
+- Fast, safe updates: updates are "atomic" - the update prepares in the background and is activated instantly when booting the computer the next time - zero waiting time. The updater only rebuilds what changed, so not much internet is needed, and updates are quick.
+- Easy factory reset: Apps and Settings are in a container, that you can discard at any time instantly, whilst keeping your documents.
+- Apps are sandboxed: apps come from Flatpak and are isolated from your personal files.
+- Secure boot and rootless software: once HuskyOS is installed, no app can modify the core system but the updater. That makes it almost impossible to break it.
 
 ## How it's different from Windows (in simple terms) 🔍
 - Safer updates and simple rollbacks — no more worrying an update bricked the PC. 
