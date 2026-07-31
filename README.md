@@ -12,13 +12,13 @@ HuskyOS is a friendly, ready-made Linux for families and people who just want th
 ## Design choices — explained like a smartphone 📱
 HuskyOS is made to feel simple and safe, like using a phone, but for a full PC. Here are the main decisions and what they mean for you:
 
-- Rolling release (carefully): Like an app that gets regular updates, HuskyOS receives ongoing improvements and fixes. We balance freshness with stability so everyday users get updates without surprises.
+- Rolling release: Like an app that gets regular updates, HuskyOS receives ongoing improvements and fixes.
 
-- Atomic updates: Updates are downloaded and prepared quietly in the background, then activated at reboot — just like a phone. If something goes wrong, you can boot the previous working version.
+- Atomic updates: Updates are downloaded and prepared quietly in the background, then activated at reboot — just like a phone. If something goes wrong, it automatically boots a backup version.
 
-- sudo disabled by default: On phones you don't run apps as the system. HuskyOS disables sudo by default so people don't accidentally change critical system parts. When administrative access is needed, there are safe, documented ways to do it.
+- Not rooted by default: On phones you need to take intentional steps to modify the core system. In contrast to other Linux systems, HuskyOS does not ship with sudo and disallows to run commands on root level, that could potentially harm the system.
 
-- Secure Boot enabled by default: This is like a phone's verified boot. It checks the system hasn't been tampered with before starting, making it much harder for malware to hijack the core system.
+- Secure Boot enabled by default: Like your smartphone, it starts only with the intended Operating System (now HuskyOS). No virus can secretly install a malicious Operating System. 
 
 Together these choices make HuskyOS predictable and hard to break while remaining flexible for power users.
 
