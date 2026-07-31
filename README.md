@@ -10,8 +10,9 @@ HuskyOS is a friendly, ready-made Linux for families and people who just want th
 - Secure boot and rootless software: once HuskyOS is installed, no app can modify the core system but the updater. That makes it almost impossible to break it.
 
 ## How it's different from Windows (in simple terms) 🔍
-- Safer updates and simple rollbacks — no more worrying an update bricked the PC. 
-- App sandboxing by default (less chance of apps snooping around your files). 
+- 100% Ownership, 0% Cost: you decide what's on your system, no ads and nothing commercial is part of the system.
+- Annoying-free: No update popus, apps or ai that is forced onto you
+- App stores and App sandboxing: No app you install can break your computer. 
 - Faster resets and less downloading — the system reuses parts that didn’t change, so upgrades are lighter.
 
 ## Quick peek 👀
