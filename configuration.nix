@@ -19,6 +19,8 @@
   config.boot.plymouth.enable = true;
   config.boot.kernelParams = [ "quiet" "loglevel=2" ];
 
+  zramSwap.enable = true;
+
   config.environment.systemPackages = with pkgs; [
     sbctl
     efibootmgr
