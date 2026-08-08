@@ -14,11 +14,12 @@
     ./gnome.nix
     ./wallpaper.nix
   ];
+
   config.time.timeZone = "Europe/Amsterdam";
 
   config.boot.plymouth.enable = true;
   config.boot.kernelParams = [ "quiet" "loglevel=2" ];
-
+  config.security.sudo.enable = false;
   config.zramSwap.enable = true;
 
   config.environment.systemPackages = with pkgs; [
