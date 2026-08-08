@@ -27,8 +27,9 @@ let
     echo ...done &&
     sleep 5 &&
     echo collecting some garbage... &&
-    nix-collect-garbage --delete-older-than 3d &&
-    exit 0 || exit 1;
+    nix-collect-garbage --delete-older-than 3d || { EX="$?"; set +u; exit $EX; };
+    set +u; # suppressing: /etc/bash_logout: line 4: __ETC_BASHLOGOUT_SOURCED: unbound variable
+    exit 0;
   '';
 
   pwPath = "${config.huskyos.flakeFolder}/RPW";
