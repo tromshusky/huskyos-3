@@ -28,7 +28,7 @@ cond_root || exit 1
 
 # variables
 
-PART_SUFFIX=$([[ $HUSKYOS_INSTALL_DISK =~ [0-9]$ ]] && echo p)
+PART_SUFFIX=$([[ $HUSKYOS_INSTALL_DISK =~ [0-9]$ ]] && echo p || echo "")
 
 # execution
 
@@ -57,7 +57,7 @@ BTR=${HUSKYOS_INSTALL_DISK}${PART_SUFFIX}2
 mkfs.fat -F 32 $EFI
 mkfs.btrfs -q -f $BTR
 
-mkdir /mnt/nix /mnt/boot /mnt/systemdata /mnt/userdata
+mkdir /mnt/btr /mnt/nix /mnt/boot /mnt/systemdata /mnt/userdata
 
 mount -o subvol=/ $BTR /mnt/btr
 btrfs subvolume create /mnt/btr/@huskyos
