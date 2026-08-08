@@ -17,7 +17,7 @@ let
     mount --bind /boot/sbctl /var/lib/sbctl &&
     [ -d /boot/efi/boot ] &&
     echo ...building uki &&
-    uki=$(nix build ${flakeFolder}#nixosConfigurations.huskyos.config.system.build.{uki,toplevel} --print-out-paths --out-link /nix/var/nix/gcroots/next-system | head -n1)/nixos.efi &&
+    uki=$(nix build ${flakeFolder}#nixosConfigurations.huskyos.config.system.build.{uki,toplevel} --recreate-lock-file --print-out-paths --out-link /nix/var/nix/gcroots/next-system | head -n1)/nixos.efi &&
     echo ...installing uki &&
     cd /boot/efi/boot &&
     if [ -e BOOTX64-unsigned.EFI ]; then rm BOOTX64-unsigned.EFI; fi &&
