@@ -1,6 +1,8 @@
 #!/bin/sh
 set -euo pipefail
 
+echo todo: need to replace nixos-install with nix build and create efibootmgr entries; exit 1;
+
 ghroot=tromshusky/huskyos-3/main
 defaultflake=https://raw.githubusercontent.com/$ghroot/etc-huskyos/flake.nix
 
