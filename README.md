@@ -1,6 +1,7 @@
 # HuskyOS — computers made easy 🐾💻
 
-HuskyOS is a friendly, ready-made Linux for families and people who just want their computer to work — like a smartphone, but for a full PC. It assembles a modern, reliable system from trusted upstream components (GNOME, Flatpak, signed boot, and Nix) so we don't have to reinvent the wheel.
+HuskyOS is a friendly, ready-made Linux for families and people who just want their computer to work — like a smartphone, but for a full PC. 
+Under the hood it makes use of NixOS, which provides an easy way to assemble your own Linux with the most up-to-date components in the Linux world. HuskyOS is built around its own configuration of NixOS for a family friendly Linux.
 
 ## Why you'll like it 😊
 - Small by default: the core system is intentionally minimal so you only add the apps you want.
@@ -16,9 +17,9 @@ HuskyOS is made to feel simple and safe, like using a phone, but for a full PC. 
 
 - Atomic updates: Updates are downloaded and prepared quietly in the background, then activated at reboot — just like a phone. If something goes wrong, it automatically boots a backup version.
 
-- Not rooted by default: On phones you need to take intentional steps to modify the core system. In contrast to other Linux systems, HuskyOS does not ship with sudo and disallows to run commands on root level, that could potentially harm the system.
+- Not rooted by default: On phones you need to take intentional steps to modify the core system. In contrast to other Linux systems, HuskyOS does not ship with sudo, which would allow to run commands on root level, that could potentially harm the system.
 
-- Secure Boot enabled by default: Like your smartphone, it starts only with the intended Operating System (now HuskyOS). No virus can secretly install a malicious Operating System. 
+- Secure Boot enabled by default: Like your smartphone, it starts only with the intended Operating System (HuskyOS). No virus can secretly manipulate the Operating System. 
 
 Together these choices make HuskyOS predictable and hard to break while remaining flexible for power users.
 
