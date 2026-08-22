@@ -12,6 +12,7 @@
     ./flathub.nix
     ./filesystems.nix
     ./gnome.nix
+    ./swapon.nix
     ./wallpaper.nix
   ];
 
