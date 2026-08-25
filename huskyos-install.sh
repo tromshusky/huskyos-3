@@ -38,6 +38,7 @@ PART_SUFFIX=$([[ $HUSKYOS_INSTALL_DISK =~ [0-9]$ ]] && echo p || echo "")
 [ -v HUSKYOS_KBD_LAYOUT ] || echo HUSKYOS_KBD_LAYOUT not set
 mkdir -p /mnt
 mount -t tmpfs tmpfs /mnt
+chmod 0755 /mnt
 mkdir -p /mnt/etc/huskyos
 curl $defaultflake > /mnt/etc/huskyos/flake.nix
 
