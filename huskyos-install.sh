@@ -79,4 +79,6 @@ printf $BTR > /mnt/etc/huskyos/BTR
 [ -v HUSKYOS_ROOT_PW ] && mkpasswd -m SHA-512 "$HUSKYOS_ROOT_PW" > /mnt/etc/huskyos/RPW
 [ -v HUSKYOS_KBD_LAYOUT ] && printf "$HUSKYOS_KBD_LAYOUT" > /mnt/etc/huskyos/KBD
 
-nixos-install --no-root-password --flake /mnt/etc/huskyos#huskyos
+mkdir -p /mnt/boot/efi/boot/
+# nixos-install --no-root-password --flake /mnt/etc/huskyos#huskyos
+cp $(nix build --extra-experimental-features "nix-command flakes" /mnt/etc/huskyos#nixosConfigurations.config.system.build.uki --no-link --print-out-paths --store /mnt)/nixos.efi /mnt/efi/boot/BOOTX64.EFI
