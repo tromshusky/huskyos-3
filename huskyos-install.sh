@@ -34,6 +34,8 @@ PART_SUFFIX=$([[ $HUSKYOS_INSTALL_DISK =~ [0-9]$ ]] && echo p || echo "")
 
 # execution
 
+[ -v HUSKYOS_ROOT_PW ] || echo HUSKYOS_ROOT_PW not set
+[ -v HUSKYOS_KBD_LAYOUT ] || echo HUSKYOS_KBD_LAYOUT not set
 mkdir -p /mnt
 mount -t tmpfs tmpfs /mnt
 mkdir -p /mnt/etc/huskyos
@@ -76,4 +78,4 @@ printf $BTR > /mnt/etc/huskyos/BTR
 [ -v HUSKYOS_ROOT_PW ] && mkpasswd -m SHA-512 "$HUSKYOS_ROOT_PW" > /mnt/etc/huskyos/RPW
 [ -v HUSKYOS_KBD_LAYOUT ] && printf "$HUSKYOS_KBD_LAYOUT" > /mnt/etc/huskyos/KBD
 
-nixos-install --no-root-password --flake /mnt/etc/huskyos#nixos
+nixos-install --no-root-password --flake /mnt/etc/huskyos#huskyos
