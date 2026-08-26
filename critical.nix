@@ -50,7 +50,7 @@ in
   systemd.services.huskyos-flag-boot-success.script = ''
     set -euo pipefail
     PATH=$PATH:${pkgs.efibootmgr}/bin
-    NEXT_NUM=$(efibootmgr | grep -oP "^Boot\K.{4}(?=..HuskyOS Next)")
+    NEXT_NUM=$(efibootmgr | grep -oP "^Boot\K.{4}(?=..HuskyOS)") # filter it by its Label
     efibootmgr -n $NEXT_NUM
   '';
 
