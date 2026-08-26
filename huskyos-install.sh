@@ -81,4 +81,4 @@ printf $BTR > /mnt/etc/huskyos/BTR
 
 mkdir -p /mnt/boot/efi/boot/
 # nixos-install --no-root-password --flake /mnt/etc/huskyos#huskyos
-cp /mnt$(nix build --extra-experimental-features "nix-command flakes" /mnt/etc/huskyos#nixosConfigurations.config.system.build.uki --no-link --print-out-paths --store /mnt)/nixos.efi /mnt/efi/boot/BOOTX64.EFI
+cp /mnt$(nix build --extra-experimental-features "nix-command flakes" /mnt/etc/huskyos#nixosConfigurations.huskyos.config.system.build.uki --no-link --print-out-paths --no-write-lock-file --store /mnt)/nixos.efi /mnt/efi/boot/BOOTX64.EFI
